@@ -36,12 +36,12 @@ public class MainFragment extends Fragment {
         View v = inflater.inflate(R.layout.main_fragment, container, false);
         WebView web = v.findViewById(R.id.webview);
         web.getSettings().setJavaScriptEnabled(true);
-        web.loadUrl(getContext().getCacheDir()+"/time.html");
+        web.loadUrl(getContext().getCacheDir()+"/time_v2.html");
         GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(){
             @SuppressLint("InvalidWakeLockTag")
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                Log.d("TAG", "onDoubleTap: LOCK");
+                Log.i("TAG", "onDoubleTap: LOCK");
                 PowerManager pm = (PowerManager) MainFragment.this.getContext().getSystemService(Context.POWER_SERVICE);
                 PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK,"TestWakeUp");
                 if(!wl.isHeld())

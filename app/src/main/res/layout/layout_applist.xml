@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    android:gravity="center_vertical">
+
     <ImageView
         android:id="@+id/iconview"
-        android:padding="5dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"/>
+        android:padding="3dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="fitCenter" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginStart="4dp">
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="10dp"
-            android:text="APPNAME"/>
+            android:textSize="12sp"
+            android:text="APPNAME"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
         <TextView
             android:id="@+id/packagename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="5dp"
-            android:text="PackageName"/>
+            android:textColor="#AAAAAA"
+            android:textSize="8sp"
+            android:text="PackageName"
+            android:singleLine="true"
+            android:ellipsize="end" />
     </LinearLayout>
 </LinearLayout>

@@ -59,7 +59,7 @@ public class MirrorActivity extends SubBaseActivity{
         mirrorView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return myGLister.onTouchEvent(motionEvent);
+                return myGListener.onTouchEvent(motionEvent);
             }
         });
 

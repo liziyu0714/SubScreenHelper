@@ -1,0 +1,77 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "AppSignKey",
+            "type": "shell",
+            "command": "keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias",
+            "windows": {
+                // "command": "${workspaceRoot}\\shell.bat first"
+                "command": "cd gitoscandroid; del my-release-key.jks; keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias"
+                // keytool -genkey -v -keystore release.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+                // keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+            },
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+            //   "panel": "new"
+            }
+        },
+        {
+            "label": "CleanApp",
+            "type": "shell",
+            "command": "${workspaceRoot}/gradlew clean",
+            "windows": {
+                // "command": "${workspaceRoot}\\shell.bat first"
+                "command": "${workspaceRoot}\\gradlew.bat clean "
+            },
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+            //   "panel": "new"
+            }
+        },
+        {
+            "label": "BuildDebugApp",
+            "type": "shell",
+            "command": "${workspaceRoot}/gradlew assembleDebug ",
+            "windows": {
+                // "command": "${workspaceRoot}\\shell.bat first"
+                "command": "${workspaceRoot}\\gradlew.bat assembleDebug "
+            },
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+            //   "panel": "new"
+            }
+        },
+        {
+            "label": "InstallDebugApp",
+            "type": "shell",
+            "command": "${workspaceRoot}/gradlew installDebug ",
+            "windows": {
+                "command": "${workspaceRoot}\\gradlew.bat installDebug "
+            },
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+            //   "panel": "new"
+            }
+        },
+        {
+            "label": "InstallReleaseApp",
+            "type": "shell",
+            "command": "${workspaceRoot}/gradlew installRelease ",
+            "windows": {
+                "command": "${workspaceRoot}\\gradlew.bat installRelease "
+            },
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+            //   "panel": "new"
+            }
+        },
+    ]
+}

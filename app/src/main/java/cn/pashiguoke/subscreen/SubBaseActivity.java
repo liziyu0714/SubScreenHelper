@@ -12,18 +12,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SubBaseActivity extends AppCompatActivity {
-    protected GestureDetector myGLister;
+    protected GestureDetector myGListener;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        myGLister = new GestureDetector(this,new MyGLister(),new Handler());
+        myGListener = new GestureDetector(this,new MyGLister(),new Handler());
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return myGLister.onTouchEvent(event);
+        return myGListener.onTouchEvent(event);
     }
 
     public class MyGLister implements GestureDetector.OnGestureListener {
